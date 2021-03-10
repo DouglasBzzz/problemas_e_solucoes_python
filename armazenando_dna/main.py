@@ -18,4 +18,15 @@ def string_to_gene(s: str) -> Gene:
 
 meu_gene: Gene = string_to_gene(gene_str)
 
-print(meu_gene)
+#print(meu_gene)
+
+def busca_linear(gene: Gene, chave_codon: Codon) -> bool:
+    for codon in gene:
+        if codon == chave_codon:
+            return True
+    return False
+
+acg: Codon = (Nucleotide.A, Nucleotide.C, Nucleotide.G)
+gat: Codon = (Nucleotide.G, Nucleotide.A, Nucleotide.T)
+print(busca_linear(meu_gene, acg)) #deve retornar TRUE
+print(busca_linear(meu_gene, gat)) #deve retornar FALSE
