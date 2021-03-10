@@ -30,3 +30,21 @@ acg: Codon = (Nucleotide.A, Nucleotide.C, Nucleotide.G)
 gat: Codon = (Nucleotide.G, Nucleotide.A, Nucleotide.T)
 print(busca_linear(meu_gene, acg)) #deve retornar TRUE
 print(busca_linear(meu_gene, gat)) #deve retornar FALSE
+
+def busca_binaria(gene: Gene, chave_codon: Codon) -> bool:
+    menor_valor: int = 0
+    maior_valor: int = len(gene) - 1
+
+    while menor_valor <= maior_valor: #enquanto houver espaco para pesquisa
+        mediana: int = (menor_valor + maior_valor) // 2
+        if gene[mediana] < chave_codon:
+            menor_valor = mediana + 1
+        elif gene[mediana] > chave_codon:
+            maior_valor = mediana -1
+        else:
+            return True
+    return False
+
+gene_gerado: Gene = sorted(meu_gene)
+print(busca_binaria(gene_gerado, acg)) #deve retornar True
+print(busca_binaria(gene_gerado, gat)) #deve retornar False
