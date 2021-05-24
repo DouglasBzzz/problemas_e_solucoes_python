@@ -13,3 +13,7 @@ class Edge:
 
     def __str__(self) -> str:
         return f"{self.u} -> {self.v}"
+
+
+    def ola_mundo(self):
+        print("olá mundo")

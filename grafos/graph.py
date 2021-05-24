@@ -30,8 +30,8 @@ class Graph(Generic[V]):
         self._edges[edge.v].append(edge.reversed())
 
     #adiciona uma aresta usando indices dos vértices (método auxiliar)
-    def add_edge_by_indices(self, u:int, v:int) -> None:
-        edge:Edge = Edge(u,v)
+    def add_edge_by_indices(self, u: int, v: int) -> None:
+        edge: Edge = Edge(u, v)
         self.add_edge(edge)
 
     #adiciona uma aresta consultando os indices dos vértices (método auxiliar)
@@ -64,7 +64,7 @@ class Graph(Generic[V]):
     def edges_for_vertex(self, vertex: V) -> List[Edge]:
         return self.edges_for_index(self.index_of(vertex))
 
-    #facilita a exibibicao elegante desses grafos
+    #facilita a exibicao elegante desses grafos
     def __str__(self) -> str:
         desc: str = ""
         for i in range(self.vertex_count):
